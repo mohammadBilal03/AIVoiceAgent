@@ -376,20 +376,15 @@ The Agents framework is under active development in a rapidly evolving field. We
 
 
 
-🎙️ Interruption Handler Feature – LiveKit Agent
-1️⃣ What Changed
-
+###🎙️ Interruption Handler Feature – LiveKit Agent
+##1️⃣ What Changed
 Added interruption_handler_agent.py inside examples/voice_agents/
-
 Introduced configurable logic to distinguish filler sounds from real user interruptions
-
 No changes made to LiveKit core SDK or VAD logic
-
 Designed as an extension layer using ASR events
-
 Supports runtime configuration via environment variables
 
-2️⃣ What Works (Verified Features)
+##2️⃣ What Works (Verified Features)
 Feature	Status
 Ignore fillers when agent is speaking (uh, umm, hmm, haan)	✅
 Accept fillers as speech when agent is not speaking	✅
@@ -397,36 +392,31 @@ Real commands (e.g., stop, wait) interrupt TTS	✅
 Handles mixed input (umm okay stop)	✅
 Confidence-based filtering	✅ (if ASR supports confidence score)
 No SDK modification	✔ Fully compliant
-3️⃣ Known Issues / Notes
 
+##3️⃣ Known Issues / Notes
 Windows users may face dependency issues (bithuman) – recommended to develop/run using Linux or WSL
-
 Real-time accuracy depends on ASR quality
-
 Confidence-based logic limited to ASR engines that provide confidence
-
 Testing in noisy audio environments recommended
 
-4️⃣ Steps to Test Locally
+##4️⃣ Steps to Test Locally
 🧪 Setup
 # (Optional) Copy example environment file
 cp .env.example .env
-
-
 Install dependencies (SDK untouched):
-
 pip install livekit livekit-agents
 
-▶️ Run the agent
+##▶️ Run the agent
 python examples/voice_agents/interruption_handler_agent.py
 
-🎤 Test Examples
+##🎤 Test Examples
 Input	Agent Speaking	Expected Behavior
 “umm”	Yes	Ignored
 “wait”	Yes	Stops immediately
 “umm okay stop”	Yes	Stops
 “hmm”	No	Registered normally
-5️⃣ Environment Details
+
+##5️⃣ Environment Details
 Item	Value
 Python Version	3.11+
 OS (tested)	Windows (local), Linux (recommended)
